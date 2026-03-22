@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖NERV clan💖</title>
+    <style>
+        /* Импорт подходящего шрифта */
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --bg-dark: #0a1118;
+            --panel-bg: #152233;
+            --text-main: #8ab4f8;
+            --accent-red: #ff3333;
+            --border-color: #2a4b6c;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Share Tech Mono', monospace;
+            background-image: 
+                linear-gradient(rgba(10, 17, 24, 0.9), rgba(10, 17, 24, 0.9)),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(42, 75, 108, 0.1) 2px, rgba(42, 75, 108, 0.1) 4px);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Эффект старого монитора */
+        .crt::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--accent-red);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+        }
+
+        .status {
+            color: #fff;
+            background: var(--accent-red);
+            padding: 5px 10px;
+            display: inline-block;
+            font-weight: bold;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .section {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--border-color);
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            border-left-color: var(--accent-red);
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.2);
+        }
+
+        h2 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        ul, ol {
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: var(--accent-red);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #557799;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        /* [НОВЫЕ СТИЛИ ДЛЯ КНОПОК] */
+        .contacts-section {
+            margin-top: 40px;
+            border-top: 2px solid var(--accent-red);
+            padding-top: 20px;
+        }
+
+        .nerv-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 15px auto;
+            text-decoration: none;
+            color: #fff;
+            background-color: rgba(255, 0, 0, 0.05);
+            border: 2px solid var(--accent-red);
+            padding: 12px 20px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.1em;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 0 5px rgba(255, 51, 51, 0.2);
+            text-transform: uppercase;
+        }
+
+        .nerv-button:hover {
+            background-color: var(--accent-red);
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
+        }
+
+        .button-label {
+            color: var(--accent-red);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .nerv-button:hover .button-label {
+            color: #000;
+        }
+
+        .github-credit {
+            text-align: center;
+            margin-top: 20px;
+            color: #557799;
+            font-size: 0.9em;
+        }
+
+        .github-link {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+
+        .ai-footer {
+            text-align: center;
+            margin-top: 15px;
+            color: rgba(85, 119, 153, 0.5);
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body class="crt">
+
+    <div class="container">
+        <header>
+            <h1>💖 Welcome to NERV 💖</h1>
+            <div class="status">SYSTEM: RECRUITING ONLINE</div>
+        </header>
+
+        <div class="grid-2">
+            <div class="section">
+                <h2>[ ЧАТ ]</h2>
+                <ol>
+                    <li><span class="highlight">Спам</span> — варн и мут.</li>
+                    <li><span class="highlight">Оскорбление</span> — варн.</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>[ ИГРА ]</h2>
+                <ol>
+                    <li><span class="highlight">Дезертирство и дискредитация</span> — <span class="danger">бан</span>.</li>
+                    <li><span class="highlight">Саботаж, инактив и нарушение протоколов</span> — варн.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>[ ОТБОР ]</h2>
+            <ul>
+                <li>Скилл или <span class="highlight">200+ часов</span>.</li>
+                <li><strong>Тесты:</strong> 
+                    FNG (50+ очков), 
+                    KOG (3+ карты), 
+                    Блок (7+ очков), 
+                    Маппер (5+ карт).
+                </li>
+            </ul>
+        </div>
+
+        <div class="section" style="border-left-color: var(--accent-red);">
+            <h2 style="color: var(--accent-red);">[ ПРОЦЕДУРА ВСТУПЛЕНИЯ ]</h2>
+            <ol>
+                <li>Установить тег <span class="highlight">Ter NERV</span>.</li>
+                <li>Написать ник и часы инвайтеру.</li>
+            </ol>
+        </div>
+
+        <div class="section contacts-section">
+            <h2>[ КОНТАКТЫ (CONTACTS) ]</h2>
+            <a href="tg://resolve?domain=vitaliy_nikolayev" class="nerv-button telegram-button">
+                <span class="button-label">Инвайтеры (Telegram):</span> @vitaliy_nikolayev
+            </a>
+            <a href="tg://resolve?domain=vitaliy_nikolayev" class="nerv-button owner-button">
+                <span class="button-label">Овнер:</span> @vitaliy_nikolayev
+            </a>
+        </div>
+
+        <footer>
+            God's in his heaven. All's right with the world.<br>
+            © 2026 NERV DDNet Division
+        </footer>
+
+        <div class="github-credit">
+            Сайт сделан / Created by:
+            <a href="https://github.com/imu-useful" target="_blank" class="github-link">
+                https://github.com/imu-useful
+            </a>
+        </div>
+
+        <div class="ai-footer">
+            <p class="ai-generated">AI generated (gemni)</p>
+        </div>
+    </div>
+
+</body>
+</html>
